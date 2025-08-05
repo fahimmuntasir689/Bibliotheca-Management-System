@@ -1,32 +1,42 @@
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { useCreateBookMutation } from "@/redux/api/baseApi";
+
 import { useForm } from "react-hook-form";
+import {  useNavigate } from "react-router";
 
 
 const CreateBook = () => {
-    const form  = useForm()
-    const onSubmit = () => {
-        //Title, Author, Genre, ISBN, Description, Copies, Available
+    const [createBook] = useCreateBookMutation()
+    const form = useForm()
+    const navigate = useNavigate()
+
+    const onSubmit = async (values) => {
+        await createBook(values).unwrap()
+        navigate("/books");
+        form.reset()
+
+
+
 
     }
     return (
         <div>
-            
-            <h1>It is Create Book Page</h1>
-            
+            <h1 className="text-center text-2xl font-bold mb-8 text-cyan-950">Fill Up The Form To Add New Book</h1>
+
             <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 border-2 w-1/2 mx-auto">
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 border-1 rounded-2xl w-1/2 mx-auto p-4">
                     <FormField
                         control={form.control}
                         name="title"
                         render={({ field }) => (
-                            <FormItem className="border-4">
+                            <FormItem className="">
                                 <FormLabel>Title</FormLabel>
                                 <FormControl>
-                                    <Input placeholder="Give the Title" {...field} />
+                                    <Input placeholder="Write The Book Title" {...field} />
                                 </FormControl>
-            
                                 <FormMessage />
                             </FormItem>
                         )}
@@ -40,7 +50,6 @@ const CreateBook = () => {
                                 <FormControl>
                                     <Input placeholder="Author Name" {...field} />
                                 </FormControl>
-                               
                                 <FormMessage />
                             </FormItem>
                         )}
@@ -51,11 +60,21 @@ const CreateBook = () => {
                         render={({ field }) => (
                             <FormItem>
                                 <FormLabel>Genre</FormLabel>
-                                <FormControl>
-                                    <Input placeholder="mention the genre" {...field} />
-                                </FormControl>
-                                
-                                <FormMessage />
+                                <Select onValueChange={field.onChange}>
+                                    <FormControl>
+                                        <SelectTrigger>
+                                            <SelectValue placeholder="Select a Genre" />
+                                        </SelectTrigger>
+                                    </FormControl>
+                                    <SelectContent {...field}>
+                                        <SelectItem value='FICTION'>FICTION</SelectItem>
+                                        <SelectItem value='NON_FICTION'>NON_FICTION</SelectItem>
+                                        <SelectItem value='SCIENCE'>SCIENCE</SelectItem>
+                                        <SelectItem value='HISTORY'>HISTORY</SelectItem>
+                                        <SelectItem value='BIOGRAPHY'>BIOGRAPHY</SelectItem>
+                                        <SelectItem value='FANTASY'>FANTASY</SelectItem>
+                                    </SelectContent>
+                                </Select>
                             </FormItem>
                         )}
                     />
@@ -68,7 +87,6 @@ const CreateBook = () => {
                                 <FormControl>
                                     <Input placeholder="ISBN" {...field} />
                                 </FormControl>
-                               
                                 <FormMessage />
                             </FormItem>
                         )}
@@ -80,9 +98,8 @@ const CreateBook = () => {
                             <FormItem>
                                 <FormLabel>Description</FormLabel>
                                 <FormControl>
-                                    <Input placeholder="Description" {...field} />
+                                    <Input placeholder="Put Description" {...field} />
                                 </FormControl>
-                                
                                 <FormMessage />
                             </FormItem>
                         )}
@@ -94,14 +111,13 @@ const CreateBook = () => {
                             <FormItem>
                                 <FormLabel>Copies</FormLabel>
                                 <FormControl>
-                                    <Input placeholder="Copies" {...field} />
+                                    <Input placeholder="How many Copies ?" {...field} />
                                 </FormControl>
-                              
                                 <FormMessage />
                             </FormItem>
                         )}
                     />
-                    <Button type="submit">Submit</Button>
+                    <Button type="submit"> Submit</Button>
                 </form>
             </Form>
 

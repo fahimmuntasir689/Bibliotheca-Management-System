@@ -7,6 +7,8 @@ import CreateBook from "../pages/books/CreateBook";
 import Book from "../pages/books/Book";
 import EditBook from "../pages/books/EditBook";
 import BorrowBook from "../pages/books/BorrowBook";
+import BorrowSummary from "@/pages/books/BorrowSummary";
+import Home from "@/pages/Home/Home";
 
 export const router = createBrowserRouter([
     {
@@ -14,8 +16,14 @@ export const router = createBrowserRouter([
         Component: App,
         children: [
             {
+                path :'/',
+                Component: Home
+
+            },
+            {
                 path: "/books",
-                Component: Books
+                Component: Books,
+                
             },
             {
                 path: "/create-book",
@@ -25,21 +33,30 @@ export const router = createBrowserRouter([
                 path: "/books/:id",
                 Component: Book,
                 loader: ({ params }) => {
-                   return fetch(`http://localhost:3000/api/books/${params.id}`)
+                    return fetch(`http://localhost:3000/api/books/${params.id}`)
 
                 }
             },
             {
                 path: "/edit-book/:id",
-                Component: EditBook
+                Component: EditBook,
+                loader: ({ params}) => {
+                    return fetch(`http://localhost:3000/api/books/${params.id}`)
+
+                }
             },
             {
-                path: "/borrow/:bookId",
-                Component: BorrowBook
+                path: "/borrow/:id",
+                Component: BorrowBook,
+                loader : ({params}) => {
+                  
+                    return fetch(`http://localhost:3000/api/books/${params.id}`)
+
+                }
             },
             {
                 path: "/borrow-summary",
-                Component: BorrowBook
+                Component: BorrowSummary
             }
         ]
 
