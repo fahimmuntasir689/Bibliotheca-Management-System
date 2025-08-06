@@ -7,6 +7,7 @@ import { useLoaderData, useNavigate } from "react-router";
 import { ToastContainer, toast } from 'react-toastify';
 
 
+
 const BorrowBook = () => {
     const [borrowBook] = useBorrowBookMutation()
     const book = useLoaderData()
@@ -29,9 +30,8 @@ const BorrowBook = () => {
             
        
 
-        } catch (error) {
+        } catch (error ) {
             toast.error(error?.data?.error.message || 'Something Went Wrong!');
-            console.log(error)
 
         }
 
