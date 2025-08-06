@@ -16,3 +16,4 @@ export interface ISummary {
         isbn: string
     }
 }
+

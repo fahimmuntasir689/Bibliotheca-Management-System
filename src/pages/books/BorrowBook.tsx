@@ -16,7 +16,7 @@ const BorrowBook = () => {
     const { _id } = data
 
 
-    const onSubmit = async (values) => {
+    const onSubmit = async (values : object) => {
 
         try {
            const res =  await borrowBook(values).unwrap();

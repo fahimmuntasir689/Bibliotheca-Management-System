@@ -14,7 +14,7 @@ const EditBook = () => {
 
     const form = useForm()
     const navigate = useNavigate()
-    const onSubmit = async (values) => {
+    const onSubmit = async (values : object) => {
         await editBook({ id: _id, ...values })
         navigate("/books");
         form.reset()

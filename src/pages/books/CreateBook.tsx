@@ -13,7 +13,7 @@ const CreateBook = () => {
     const form = useForm()
     const navigate = useNavigate()
 
-    const onSubmit = async (values) => {
+    const onSubmit = async (values : object) => {
         await createBook(values).unwrap()
         navigate("/books");
         form.reset()

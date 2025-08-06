@@ -17,7 +17,7 @@ const Books = () => {
     const { data, isLoading } = useGetBookByNameQuery(undefined)
     const [deleteBook] = useDeleteBookMutation()
 
-    const handleDeleteBook = async (id) => {
+    const handleDeleteBook = async (id : string) => {
 
         await deleteBook(id)
 
@@ -68,7 +68,7 @@ const Books = () => {
                                                 </AlertDialogHeader>
                                                 <AlertDialogFooter>
                                                     <AlertDialogCancel>Cancel</AlertDialogCancel>
-                                                    <AlertDialogAction onClick={() => handleDeleteBook(book._id)}>delete</AlertDialogAction>
+                                                    <AlertDialogAction onClick={() => handleDeleteBook(book._id) }>delete</AlertDialogAction>
                                                 </AlertDialogFooter>
                                             </AlertDialogContent>
                                         </AlertDialog>
