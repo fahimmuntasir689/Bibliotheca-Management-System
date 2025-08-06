@@ -29,7 +29,7 @@ function App() {
           <Outlet></Outlet>
         </div>
       </div>
-      <footer className='border bg-gray-400 p-14'>
+      <footer className='border bg-gray-400 p-14 mt-8'>
         <h1 className='text-black text-sm font-medium text-center'>© BiblioTheca ~ A Library Management Application</h1>
       </footer>
     </div>

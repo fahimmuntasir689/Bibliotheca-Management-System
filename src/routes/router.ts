@@ -57,7 +57,8 @@ export const router = createBrowserRouter([
             {
                 path: "/borrow-summary",
                 Component: BorrowSummary
-            }
+            },
+            
         ]
 
     },
