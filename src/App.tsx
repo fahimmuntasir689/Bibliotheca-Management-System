@@ -10,16 +10,20 @@ function App() {
     <div className=''>
 
       <div className='max-w-6xl m-auto pt-5'>
-        <div className='flex justify-between items-center mb-12'>
+        <div className='flex flex-col gap-4 mb-12 md:flex-row md:justify-between md: items-center'>
           <Link to='/'>
             <h1 className='font-bold text-3xl font-mono'>BiblioTheca</h1>
           </Link>
-          <div className='flex gap-10 text-shadow-violet-400 font-medium'>
+          <div className='flex flex-col gap-2 text-shadow-violet-400 font-medium md:flex-row md:gap-10'>
             <Link to='/books'>All Books</Link>
             <Link to='/create-book'>Add Books</Link>
             <Link to='/borrow-summary'>Borrow Summary</Link>
           </div>
-          <ModeToggle></ModeToggle>
+          <div className='relative right-8 md:right-0'>
+
+            <ModeToggle></ModeToggle>
+          </div>
+
         </div>
         <div className='min-h-screen'>
           <Outlet></Outlet>

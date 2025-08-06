@@ -39,7 +39,7 @@ export const baseApi = createApi({
                 method: 'POST',
                 body: bookData,
             }),
-            invalidatesTags: ["BorrowBooks"]
+            invalidatesTags: ["BorrowBooks" , 'Books']
         }),
         getBorrowBook: build.query({
             query: () => '/borrow',

@@ -14,7 +14,7 @@ import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, 
 
 
 const Books = () => {
-    let { data, isLoading } = useGetBookByNameQuery(undefined)
+    const { data, isLoading } = useGetBookByNameQuery(undefined)
     const [deleteBook] = useDeleteBookMutation()
 
     const handleDeleteBook = async (id) => {
@@ -25,17 +25,17 @@ const Books = () => {
 
     return (
         <>
-            <div className="bg-amber-100 mt-8 rounded-md">
+            <div className="bg-amber-100 m-6 sm:p-4 rounded-md md:m-0 p-2 text-green-800">
                 <Table>
                     <TableHeader>
                         <TableRow className="">
-                            <TableHead className="">Title</TableHead>
-                            <TableHead>Author</TableHead>
-                            <TableHead>Genre</TableHead>
-                            <TableHead>ISBN</TableHead>
-                            <TableHead >Copies</TableHead>
-                            <TableHead>Availability</TableHead>
-                            <TableHead className="text-center">Actions</TableHead>
+                            <TableHead className="text-green-600">Title</TableHead>
+                            <TableHead className="text-green-600">Author</TableHead>
+                            <TableHead className="text-green-600">Genre</TableHead>
+                            <TableHead className="text-green-600">ISBN</TableHead>
+                            <TableHead className="text-green-600">Copies</TableHead>
+                            <TableHead className="text-green-600">Availability</TableHead>
+                            <TableHead className="text-center text-green-600">Actions</TableHead>
                         </TableRow>
                     </TableHeader>
                     <TableBody>

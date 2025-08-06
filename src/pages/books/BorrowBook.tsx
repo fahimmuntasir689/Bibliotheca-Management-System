@@ -40,10 +40,10 @@ const BorrowBook = () => {
     return (
         <div>
 
-            <h1 className="text-center text-2xl font-bold mb-8 text-cyan-950">Fill Up The Form To Borrow Book</h1>
+            <h1 className="text-center text-2xl font-bold mb-8 text-yellow-800">Fill Up The Form To Borrow Book</h1>
 
             <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 border-1 w-1/2 mx-auto p-4 rounded-2xl">
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 border-1 w-9/10 mx-auto p-4 rounded-2xl md:w-1/2">
                     <FormField
                         control={form.control}
                         name="book" defaultValue={_id}

@@ -8,13 +8,13 @@ const BorrowSummary = () => {
     const { data, isLoading } = useGetBorrowBookQuery(undefined)
 
     return (
-        <div className="bg-amber-100 mt-8 rounded-md">
+        <div className="bg-amber-100 mt-8 p-2 rounded-md m-3 md:m-0 text-green-600">
             <Table>
                 <TableHeader>
                     <TableRow>
-                        <TableHead className="">Book Title</TableHead>
-                        <TableHead>ISBN</TableHead>
-                        <TableHead className="text-center">Total Quantity</TableHead>
+                        <TableHead className="text-green-900">Book Title</TableHead>
+                        <TableHead className="text-green-900">ISBN</TableHead>
+                        <TableHead className="text-center text-green-900">Total Quantity</TableHead>
                     </TableRow>
                 </TableHeader>
                 <TableBody>

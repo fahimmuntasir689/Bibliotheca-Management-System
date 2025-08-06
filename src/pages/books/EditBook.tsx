@@ -22,9 +22,9 @@ const EditBook = () => {
     }
     return (
         <div>
-            <h1 className="text-center text-2xl font-bold mb-8 text-cyan-950">Fill Up The Form To Edit the Book</h1>
+            <h1 className="text-center text-2xl font-bold mb-8 text-yellow-800">Fill Up The Form To Edit the Book</h1>
             <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 border-1 rounded-2xl w-1/2 mx-auto p-4">
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 border-1 rounded-2xl w-9/10 mx-auto p-4 md:w-1/2">
                     <FormField
                         control={form.control}
                         name="title" defaultValue={title}
