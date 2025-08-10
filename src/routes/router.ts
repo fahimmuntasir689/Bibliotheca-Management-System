@@ -33,7 +33,7 @@ export const router = createBrowserRouter([
                 path: "/books/:id",
                 Component: Book,
                 loader: ({ params }) => {
-                    return fetch(`http://localhost:3000/api/books/${params.id}`)
+                    return fetch(`https://library-management-app-rust.vercel.app/api/books/${params.id}`)
 
                 }
             },
@@ -41,7 +41,7 @@ export const router = createBrowserRouter([
                 path: "/edit-book/:id",
                 Component: EditBook,
                 loader: ({ params}) => {
-                    return fetch(`http://localhost:3000/api/books/${params.id}`)
+                    return fetch(`https://library-management-app-rust.vercel.app/api/books/${params.id}`)
 
                 }
             },
@@ -50,7 +50,7 @@ export const router = createBrowserRouter([
                 Component: BorrowBook,
                 loader : ({params}) => {
                   
-                    return fetch(`http://localhost:3000/api/books/${params.id}`)
+                    return fetch(`https://library-management-app-rust.vercel.app/api/books/${params.id}`)
 
                 }
             },
